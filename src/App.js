@@ -7,6 +7,8 @@ function App() {
   //   const myState = useSelector(state = () => {
   // why can't we write like this
   // })
+
+  // i am pushing this code from my original account
   const myState = useSelector((state) => state.changeNumber);
   const dispatch = useDispatch();
   return (
