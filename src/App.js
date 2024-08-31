@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
+import { incNumber, decNumber } from "./actions/index";
 
 function App() {
+  //   const myState = useSelector(state = () => {
+  // why can't we write like this
+  // })
+  const myState = useSelector((state) => state.changeNumber);
+  const dispatch = useDispatch();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Increment and decrement of the count using Redux</h1>
+      <div>
+        <button onClick={() => dispatch(decNumber())}>-</button>
+        <input type="text" value={myState} style={{ width: "20px" }} />
+        <button onClick={() => dispatch(incNumber())}>+</button>
+      </div>
     </div>
   );
 }
